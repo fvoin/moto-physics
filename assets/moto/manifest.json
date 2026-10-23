@@ -1,0 +1,449 @@
+{
+ "scale_px_per_m": 400,
+ "coords": "Sprite px: x right, y down. Body-local metres: x forward, y up (bike.ts). Place a sprite at body.getWorldPoint(pivotLocal) with origin = pivot_px / size, rotation = -(body.getAngle() + angle_drawn) on screen (y flipped). Display scale = view ppm / scale_px_per_m.",
+ "parts": {
+  "frame": {
+   "file": "frame.png",
+   "size": [
+    463,
+    316
+   ],
+   "pivot_px": [
+    228.4,
+    297.8
+   ],
+   "body": "frame",
+   "pivot_local_m": [
+    0,
+    0
+   ],
+   "angle_drawn": 0.0,
+   "layer": 4,
+   "note": "Everything rigid on the frame: frame, engine, exhaust, skid plate, footpeg, tank cover, one-piece rear fender (П11), stanchions + clamps + handlebar. Anchors = where the physics points fall on the sprite.",
+   "anchors_px": {
+    "pivot": [
+     192.4,
+     253.8
+    ],
+    "shockTop": [
+     128.4,
+     145.8
+    ],
+    "peg": [
+     200.4,
+     293.8
+    ],
+    "bar": [
+     360.4,
+     13.8
+    ],
+    "countershaft": [
+     216.4,
+     243.8
+    ],
+    "bottomClamp": [
+     411.1,
+     115.1
+    ],
+    "topClamp": [
+     375.3,
+     34.7
+    ]
+   }
+  },
+  "swingarm": {
+   "file": "swingarm.png",
+   "size": [
+    278,
+    96
+   ],
+   "pivot_px": [
+    253.2,
+    28.8
+   ],
+   "body": "swingarm",
+   "pivot_local_m": [
+    -0.09,
+    0.11
+   ],
+   "angle_drawn": 0.0,
+   "layer": 2,
+   "anchors_px": {
+    "rearAxle": [
+     25.2,
+     72.8
+    ],
+    "shockBottom": [
+     171.2,
+     26.3
+    ]
+   }
+  },
+  "forkLower": {
+   "file": "forkLower.png",
+   "size": [
+    204,
+    210
+   ],
+   "pivot_px": [
+    93.0,
+    185.6
+   ],
+   "body": "fork",
+   "pivot_local_m": [
+    0.66,
+    0.0
+   ],
+   "angle_drawn": 0.0,
+   "layer": 6,
+   "note": "Lower legs + front fender; slides along the fork axis over the gold stanchions of the frame sprite.",
+   "anchors_px": {
+    "legTop": [
+     24.7,
+     32.1
+    ]
+   }
+  },
+  "rearWheel": {
+   "file": "rearWheel.png",
+   "size": [
+    198,
+    198
+   ],
+   "pivot_px": [
+    98.6,
+    98.6
+   ],
+   "body": "rearWheel",
+   "pivot_local_m": [
+    -0.66,
+    0.0
+   ],
+   "angle_drawn": 0.0,
+   "layer": 1,
+   "rim_radius_m": 0.23,
+   "rim_outer_px": 94.4,
+   "note": "Tyre is drawn by code from the rim radius outwards (bike.ts rimR = r - section); draw it UNDER this sprite."
+  },
+  "frontWheel": {
+   "file": "frontWheel.png",
+   "size": [
+    228,
+    228
+   ],
+   "pivot_px": [
+    113.6,
+    113.6
+   ],
+   "body": "frontWheel",
+   "pivot_local_m": [
+    0.66,
+    0.0
+   ],
+   "angle_drawn": 0.0,
+   "layer": 5,
+   "rim_radius_m": 0.267,
+   "rim_outer_px": 109.2,
+   "note": "Tyre is drawn by code from the rim radius outwards (bike.ts rimR = r - section); draw it UNDER this sprite."
+  },
+  "shockTop": {
+   "file": "shockTop.png",
+   "size": [
+    54,
+    45
+   ],
+   "pivot_px": [
+    16.8,
+    21.9
+   ],
+   "body": "frame (pinned at shockTop)"
+  },
+  "shockSpring": {
+   "file": "shockSpring.png",
+   "size": [
+    62,
+    48
+   ],
+   "pivot_px": [
+    4.0,
+    23.3
+   ],
+   "body": "stretched between"
+  },
+  "shockBottom": {
+   "file": "shockBottom.png",
+   "size": [
+    56,
+    47
+   ],
+   "pivot_px": [
+    37.9,
+    23.6
+   ],
+   "body": "swingarm (pinned at shock eye)"
+  },
+  "torso": {
+   "file": "torso.png",
+   "size": [
+    236,
+    92
+   ],
+   "pivot_px": [
+    117.7,
+    46.0
+   ],
+   "body": "torso (rider.ts torsoL/torsoR)",
+   "angle_drawn": 0.0,
+   "segment_len_m": 0.36,
+   "capsule_r_m": 0.095,
+   "joints_px": {
+    "proximal": [
+     45.7,
+     46.0
+    ],
+    "distal": [
+     189.7,
+     46.0
+    ]
+   }
+  },
+  "pelvis": {
+   "file": "pelvis.png",
+   "size": [
+    128,
+    84
+   ],
+   "pivot_px": [
+    63.4,
+    42.1
+   ],
+   "body": "pelvis (rider.ts pelvisL/pelvisR)",
+   "angle_drawn": 0.0,
+   "segment_len_m": 0.1,
+   "capsule_r_m": 0.085,
+   "joints_px": {
+    "proximal": [
+     43.4,
+     42.1
+    ],
+    "distal": [
+     83.4,
+     42.1
+    ]
+   }
+  },
+  "thigh": {
+   "file": "thigh.png",
+   "size": [
+    241,
+    80
+   ],
+   "pivot_px": [
+    122.1,
+    40.4
+   ],
+   "body": "thigh (rider.ts thighL/thighR)",
+   "angle_drawn": 0.0,
+   "segment_len_m": 0.41,
+   "capsule_r_m": 0.078,
+   "joints_px": {
+    "proximal": [
+     40.1,
+     40.4
+    ],
+    "distal": [
+     204.1,
+     40.4
+    ]
+   }
+  },
+  "shin": {
+   "file": "shin.png",
+   "size": [
+    252,
+    109
+   ],
+   "pivot_px": [
+    142.7,
+    67.5
+   ],
+   "body": "shin (rider.ts shinL/shinR)",
+   "angle_drawn": 0.0,
+   "segment_len_m": 0.53,
+   "capsule_r_m": 0.066,
+   "joints_px": {
+    "proximal": [
+     36.7,
+     67.5
+    ],
+    "distal": [
+     248.7,
+     67.5
+    ]
+   }
+  },
+  "upperArm": {
+   "file": "upperArm.png",
+   "size": [
+    159,
+    64
+   ],
+   "pivot_px": [
+    81.3,
+    31.8
+   ],
+   "body": "upperArm (rider.ts upperArmL/upperArmR)",
+   "angle_drawn": 0.0,
+   "segment_len_m": 0.24,
+   "capsule_r_m": 0.055,
+   "joints_px": {
+    "proximal": [
+     33.3,
+     31.8
+    ],
+    "distal": [
+     129.3,
+     31.8
+    ]
+   }
+  },
+  "foreArm": {
+   "file": "foreArm.png",
+   "size": [
+    173,
+    64
+   ],
+   "pivot_px": [
+    86.3,
+    31.2
+   ],
+   "body": "foreArm (rider.ts foreArmL/foreArmR)",
+   "angle_drawn": 0.0,
+   "segment_len_m": 0.265,
+   "capsule_r_m": 0.048,
+   "joints_px": {
+    "proximal": [
+     33.3,
+     31.2
+    ],
+    "distal": [
+     139.3,
+     31.2
+    ]
+   }
+  },
+  "head": {
+   "file": "head.png",
+   "size": [
+    135,
+    145
+   ],
+   "pivot_px": [
+    64.2,
+    69.9
+   ],
+   "body": "head (circle, centre = headC = neck + len/2 along the head axis)",
+   "angle_drawn": 0.0,
+   "segment_len_m": 0.33,
+   "capsule_r_m": 0.165,
+   "helmet_r_m": 0.165,
+   "note": "Axis +x = neck -> crown; visor faces image-down (= forward when the head is upright)."
+  }
+ },
+ "shock": {
+  "how": "axis +x = top eye -> bottom eye. Angle a = atan2(bottom - top) in world. shockTop: pivot at the top eye; shockBottom: pivot at the bottom eye; shockSpring: pivot = its LEFT edge centre, placed at top eye + topCap along the axis, scaleX = (L - topCap - bottomCap) / springNatural, where L = current eye-to-eye distance. Draw order: shockBottom, shockSpring, shockTop.",
+  "topCap_m": 0.0832,
+  "bottomCap_m": 0.0847,
+  "springNatural_m": 0.1353,
+  "designLength_m": 0.2675,
+  "springScaleAtDesign": 0.736
+ },
+ "rider_segments_new": {
+  "note": "Physics follows the art (producer 23.10): set rider.ts SEGS to these values (len = joint-to-joint, r = capsule radius; head: circle r, centre len/2 from the neck). Sample-trial-2 proportions (559 px/m) scaled x1.2, helmet x1.1 (owner 23.10: rider looked like a child). Masses: keep the totals, redistribute by volume if needed. POSE_* keys still fit: sample hip is (-0.09, 0.80) from the peg.",
+  "old": {
+   "head": {
+    "len": 0.14,
+    "r": 0.11
+   },
+   "torso": {
+    "len": 0.48,
+    "r": 0.13
+   },
+   "pelvis": {
+    "len": 0.16,
+    "r": 0.12
+   },
+   "upperArm": {
+    "len": 0.3,
+    "r": 0.05
+   },
+   "foreArm": {
+    "len": 0.33,
+    "r": 0.045
+   },
+   "thigh": {
+    "len": 0.45,
+    "r": 0.075
+   },
+   "shin": {
+    "len": 0.45,
+    "r": 0.06
+   }
+  },
+  "new": {
+   "head": {
+    "len": 0.33,
+    "r": 0.165
+   },
+   "torso": {
+    "len": 0.36,
+    "r": 0.095
+   },
+   "pelvis": {
+    "len": 0.1,
+    "r": 0.085
+   },
+   "upperArm": {
+    "len": 0.24,
+    "r": 0.055
+   },
+   "foreArm": {
+    "len": 0.265,
+    "r": 0.048
+   },
+   "thigh": {
+    "len": 0.41,
+    "r": 0.078
+   },
+   "shin": {
+    "len": 0.53,
+    "r": 0.066
+   }
+  }
+ },
+ "rider": {
+  "how": "Each segment: axis +x = proximal -> distal joint (rider.ts convention), pivot = segment centre (body origin), image-up side = body local +y (back for torso/head, front for limbs). Far arm/leg: same sprites tinted darker, drawn behind the bike.",
+  "order_back_to_front": "far thigh/shin/upperArm/foreArm (dark) | bike | pelvis, torso, head, near thigh, near shin, near upperArm, near foreArm"
+ },
+ "layers_back_to_front": [
+  "far rider limbs (tinted)",
+  "rear tyre (code)",
+  "rearWheel",
+  "chain (code)",
+  "swingarm",
+  "shockBottom",
+  "shockSpring",
+  "shockTop",
+  "frame",
+  "front tyre (code)",
+  "frontWheel",
+  "forkLower",
+  "pelvis",
+  "torso",
+  "head",
+  "near thigh",
+  "near shin",
+  "near upperArm",
+  "near foreArm"
+ ]
+}
